@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
+</head>
+<body>
+
+    <div class="product-card">
+        <div class="logo-cart">
+            <img src="image/logo.png" alt="">
+            <i class='bx bx-shopping-bag'></i>
+        </div>
+        <div class="main-images">
+            <img id="blue" class="blue active" src="image/blue.png" alt="blue">
+            <img id="lightblue" class="lightblue" src="image/lightblue.png" alt="blue">
+            <img id="black" class="black" src="image/Black.png" alt="blue">
+        </div>
+        <div class="jeans-detail">
+            <span class="jeans-name">NEW JEANS</span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, consectetur.</p>
+            <div class="stars">
+                <i class='bx bxs-star' ></i>
+                <i class='bx bxs-star' ></i>
+                <i class='bx bxs-star' ></i>
+                <i class='bx bxs-star' ></i>
+                <i class='bx bxs-star' ></i>
+            </div>
+        </div>
+        <div class="color-price">
+            <div class="color-option">
+                <span class="color">Colour:</span>
+                <div class="circles">
+                    <span class="circle blue active" id="blue"></span>
+                    <span class="circle lightblue" id="lightblue"></span>
+                    <span class="circle black" id="black"></span>
+                </div>
+            </div>
+            <div class="price">
+                <span class="price_num">$12.00</span>
+                <span class="price_letter">Twelve Dollar Only</span>
+            </div>
+        </div>
+        <div class="button">
+            <div class="button-layer"></div>
+            <button>Add To Cart</button>
+        </div>
+    </div>
+
+    <script>
+        let circle = document.querySelector(".color-option");
+
+        circle.addEventListener("click", (e)=>{
+            let target = e.target;
+            if(target.classList.contains("circle")){
+                circle.querySelector(".active").classList.remove("active");
+                target.classList.add("active");
+                document.querySelector(".main-images .active").classList.remove("active");
+                document.querySelector(`.main-images .${target.id}`).classList.add("active");
+            }
+        });
+    </script>
+
+</body>
+</html>
